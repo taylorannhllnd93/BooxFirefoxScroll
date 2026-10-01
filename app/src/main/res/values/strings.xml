@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BOOX Firefox Scroll</string>
+    <string name="service_name">BOOX Firefox Button Scroll</string>
+    <string name="service_description">Uses BOOX physical page buttons to scroll Firefox. It does not read or transmit webpage content.</string>
+</resources>
