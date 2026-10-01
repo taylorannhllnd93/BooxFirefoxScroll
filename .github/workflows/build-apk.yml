@@ -21,19 +21,19 @@ jobs:
         run: yes | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager --licenses >/dev/null || true
 
       - name: Install Android SDK packages
-        run: /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-35" "build-tools;35.0.0"
+        run: /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-32" "build-tools;35.0.0"
 
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
 
       - name: Build debug APK
-        run: gradle :app:assembleDebug
+        run: gradle :app:assembleRelease
 
       - name: Inspect APK metadata
-        run: /usr/local/lib/android/sdk/build-tools/35.0.0/aapt dump badging app/build/outputs/apk/debug/app-debug.apk
+        run: /usr/local/lib/android/sdk/build-tools/35.0.0/aapt dump badging app/build/outputs/apk/release/app-release.apk
 
       - uses: actions/upload-artifact@v4
         with:
-          name: BooxFirefoxScroll-debug
+          name: BooxFirefoxScroll-BOOX12-release
           path: app/build/outputs/apk/debug/app-debug.apk
